@@ -1,0 +1,49 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+#root {
+  font-family: $font-2;
+  font-size: 14px;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $dark-3;
+}
+
+h1 {
+  font-family: $font-1;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-s;
+}
+
+h2 {
+  font-family: $font-1;
+  font-size: $font-size-m;
+  font-weight: $font-weight-s;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: $font-size-l;
+  font-weight: $font-weight-l;
+}
+
+h4 {
+  font-size: $font-size-m;
+  font-weight: $font-weight-l;
+}

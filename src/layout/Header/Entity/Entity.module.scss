@@ -1,0 +1,14 @@
+.entity {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.buttons {
+  margin-top: 0.5rem;
+
+  :first-child {
+    margin-right: 1rem;
+  }
+}
