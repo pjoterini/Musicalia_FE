@@ -1,14 +1,17 @@
-import Entity from './Entity/Entity'
+import NavElement from './NavElement/NavElement'
 import s from './Header.module.scss'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
     <div className={s.headerContainer}>
       <header className={s.header}>
-        <h1 className={s.title}>MUSICALIA.</h1>
+        <Link to='/'>
+          <h1 className={s.title}>MUSICALIA.</h1>
+        </Link>
         <nav className={s.navigationContainer}>
-          <Entity>artists</Entity>
-          <Entity>songs</Entity>
+          <NavElement>artists</NavElement>
+          <NavElement>songs</NavElement>
         </nav>
       </header>
     </div>
