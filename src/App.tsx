@@ -1,10 +1,14 @@
-import './styles/global.css'
+import Content from './layout/Content/Content'
+import Footer from './layout/Footer/Footer'
+import Header from './layout/Header/Header'
+import './styles/global.scss'
 
 function App() {
   return (
     <>
-      <header>header</header>
-      <h1>lets go</h1>
+      <Header />
+      <Content />
+      <Footer />
     </>
   )
 }
