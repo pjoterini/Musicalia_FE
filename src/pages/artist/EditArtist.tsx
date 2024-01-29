@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 
 function EditArtist() {
   const { id } = useParams()
-  return <div>EditArtist {id}</div>
+  return <>EditArtist {id}</>
 }
 
 export default EditArtist

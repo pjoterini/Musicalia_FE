@@ -1,5 +1,5 @@
 function NewArtist() {
-  return <div>NewArtist</div>
+  return <>NewArtist</>
 }
 
 export default NewArtist
