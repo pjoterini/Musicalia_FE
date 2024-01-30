@@ -1,41 +1,6 @@
 import { useEffect, useState } from 'react'
-
-interface IArticle {
-  author: string
-  content: string
-  description: string
-  source: string
-  url: string
-  urlToImage: string
-  publishedAt: string
-  title: string
-}
-interface IArtist {
-  _id: string
-  name: string
-  genre: string
-  rating: number
-  createdAt: string
-  coverImage: {
-    data: any
-    type: string
-  }
-}
-interface ISong {
-  _id: string
-  artist: {
-    name: string
-    genre: string
-    rating: number
-  }
-  title: string
-  rating: number
-  createdAt: string
-  coverImage: {
-    data: any
-    type: string
-  }
-}
+import ArticleCard from '../components/ArticleCard/ArticleCard'
+import ArtistCard from '../components/ArtistCard/ArtistCard'
 
 function Home() {
   const [articles, setArticles] = useState<IArticle[] | null>(null)
@@ -64,24 +29,11 @@ function Home() {
     <>
       <div>
         {articles &&
-          articles.map((article) => (
-            <div key={article.publishedAt}>
-              <p>{article.title}</p>
-              <img src={article.urlToImage} alt='' />
-            </div>
-          ))}
+          articles.map((article) => <ArticleCard article={article} />)}
         {artists &&
+          artistsCovers &&
           artists.map((artist, idx) => (
-            <div key={artist._id}>
-              <div>{artist.name}</div>
-              {artistsCovers && (
-                <img
-                  key={idx}
-                  src={`data:image/png;base64,${artistsCovers[idx]}`}
-                  alt=''
-                />
-              )}
-            </div>
+            <ArtistCard artist={artist} cover={artistsCovers[idx]} />
           ))}
         {songs &&
           songs.map((song, idx) => (
