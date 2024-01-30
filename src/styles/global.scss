@@ -25,6 +25,10 @@ body {
   background: $dark-3;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   font-family: $font-1;
   font-size: $font-size-logo;
@@ -53,7 +57,7 @@ button {
   padding: 0.5rem 1rem;
   background-color: $dark-1;
   color: $white;
-  border: 1px solid $white;
+  border: 2px solid $white;
   border-radius: 3rem;
   font-size: $font-size-s;
   cursor: pointer;
@@ -62,6 +66,11 @@ button {
 
   &:hover {
     background-color: $dark-3;
-    box-shadow: inset 0px 0px 0px 2px;
+    box-shadow: inset 0px 0px 0px 1px;
   }
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }

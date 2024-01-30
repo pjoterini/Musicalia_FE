@@ -1,16 +1,11 @@
 import s from './Content.module.scss'
 
-function Content() {
-  return (
-    <div className={s.contentContainer}>
-      <div>fddsafdsf</div>
-      <div>fddsafdsf</div>
-      <div>fddsafdsf</div>
-      <div>fddsafdsf</div>
-      <div>fddsafdsf</div>
-      <div>fddsafdsf</div>
-    </div>
-  )
+interface IProps {
+  children: React.ReactNode
+}
+
+function Content({ children }: IProps) {
+  return <div className={s.contentContainer}>{children}</div>
 }
 
 export default Content
