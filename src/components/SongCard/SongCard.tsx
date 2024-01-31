@@ -1,15 +1,15 @@
 interface IProps {
-  artist: IArtist
+  song: ISong
   cover: string
 }
 
-const ArtistCard = ({ artist, cover }: IProps) => {
+const SongCard = ({ song, cover }: IProps) => {
   return (
     <>
-      <div>{artist.name}</div>
+      <div>{song.title}</div>
       <img src={`data:image/png;base64,${cover}`} alt='' />
     </>
   )
 }
 
-export default ArtistCard
+export default SongCard

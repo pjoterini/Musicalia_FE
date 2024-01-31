@@ -1,0 +1,10 @@
+.articles {
+  padding-bottom: 2rem;
+}
+
+.cardsContainer {
+  padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 279px);
+  gap: 2rem;
+}

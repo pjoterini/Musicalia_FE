@@ -17,7 +17,6 @@ function App() {
     <>
       <Header />
       <Content>
-        FIRST DATA LOAD MAY BE SLOW DUE TO BACKEND BEING HOSTED FOR FREE
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/artists' element={<Artists />} />

@@ -21,12 +21,33 @@
   padding: 0;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
   background: $dark-3;
 }
 
 a {
   text-decoration: none;
+  color: $white;
 }
 
 h1 {
@@ -37,19 +58,14 @@ h1 {
 
 h2 {
   font-family: $font-1;
-  font-size: $font-size-m;
+  font-size: $font-size-l;
   font-weight: $font-weight-s;
   text-transform: uppercase;
 }
 
 h3 {
   font-size: $font-size-l;
-  font-weight: $font-weight-l;
-}
-
-h4 {
-  font-size: $font-size-m;
-  font-weight: $font-weight-l;
+  font-weight: $font-weight-s;
 }
 
 button {
