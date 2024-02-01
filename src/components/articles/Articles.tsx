@@ -1,6 +1,7 @@
 import ArticleCard from './ArticleCard/ArticleCard'
 import s from './Articles.module.scss'
 import ArticlesNav from './ArticlesNav/ArticlesNav'
+import { v4 as uuidv4 } from 'uuid'
 
 interface IProps {
   articles?: IArticle[]
@@ -14,7 +15,7 @@ const Articles = ({ articles }: IProps) => {
       <div className={s.cardsContainer}>
         {articles &&
           articles.map((article) => (
-            <ArticleCard key={article.title} article={article} />
+            <ArticleCard key={uuidv4()} article={article} />
           ))}
       </div>
     </section>

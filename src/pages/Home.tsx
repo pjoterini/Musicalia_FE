@@ -3,27 +3,27 @@ import SlowDataInfo from '../components/SlowDataInfo/SlowDataInfo'
 import Articles from '../components/articles/Articles'
 import ArtistCard from '../components/ArtistCard/ArtistCard'
 import SongCard from '../components/SongCard/SongCard'
+import { useArticlesContext } from '../context/ArticlesContext'
 
 function Home() {
-  const [articles, setArticles] = useState<IArticle[] | undefined>()
+  const { articles, setArticles } = useArticlesContext()
   const [artists, setArtists] = useState<IArtist[] | null>(null)
   const [artistsCovers, setArtistsCovers] = useState<string[] | null>(null)
   const [songs, setSongs] = useState<ISong[] | null>(null)
   const [songsCovers, setSongsCovers] = useState<string[] | null>(null)
 
-  const getData = async () => {
-    const response = await fetch('http://localhost:3000')
-    const data = await response.json()
-    console.log(data)
-
-    setArticles(data.articles)
-    setArtists(data.artists)
-    setArtistsCovers(data.artistsCovers)
-    setSongs(data.songs)
-    setSongsCovers(data.songsCovers)
-  }
-
   useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL)
+      const data = await response.json()
+
+      setArticles(data.articles)
+      setArtists(data.artists)
+      setArtistsCovers(data.artistsCovers)
+      setSongs(data.songs)
+      setSongsCovers(data.songsCovers)
+    }
+
     getData()
   }, [])
 
@@ -31,7 +31,6 @@ function Home() {
     <>
       <SlowDataInfo />
       <Articles articles={articles} />
-
       {artists &&
         artistsCovers &&
         artists.map((artist, idx) => (

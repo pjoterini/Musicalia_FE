@@ -1,6 +1,8 @@
+import { useArticlesContext } from '../../../context/ArticlesContext'
 import s from './ArticlesNav.module.scss'
 
 const ArticlesNav = () => {
+  const { setArticles } = useArticlesContext()
   const queries = [
     'music',
     'songs',
@@ -14,8 +16,7 @@ const ArticlesNav = () => {
 
   const queryArticles = async (query: string) => {
     const request = { query: query }
-    console.log('runs')
-    const response = await fetch('http://localhost:3000', {
+    const response = await fetch(import.meta.env.VITE_BACKEND_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +25,7 @@ const ArticlesNav = () => {
     })
 
     const data = await response.json()
-    console.log(data)
+    setArticles(data)
   }
 
   return (

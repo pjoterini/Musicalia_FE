@@ -14,7 +14,15 @@ const ArticleCard = ({ article }: IProps) => {
         {titleSliced}
         {article.title.length > titleSliced.length && <span>...</span>}
       </p>
-      <img className={s.image} src={article.urlToImage} alt='article image' />
+      <img
+        className={s.image}
+        src={
+          article.urlToImage
+            ? article.urlToImage
+            : `/pixel_background${Math.ceil(Math.random() * 3)}.webp`
+        }
+        alt='article image'
+      />
       <p className={s.description}>
         {descriptonSliced}
         {article.description.length > descriptonSliced.length && (
