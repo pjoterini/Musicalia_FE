@@ -1,4 +1,7 @@
+@use '/src/styles/variables' as *;
+
 .footer {
-  padding: 1rem 0;
+  padding: 3rem 0;
+  font-size: $font-size-s;
   text-align: center;
 }

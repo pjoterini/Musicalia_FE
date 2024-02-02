@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import SlowDataInfo from '../components/SlowDataInfo/SlowDataInfo'
 import Articles from '../components/articles/Articles'
-import ArtistCard from '../components/ArtistCard/ArtistCard'
-import SongCard from '../components/SongCard/SongCard'
+import Artists from '../components/artists/Artists'
+import Songs from '../components/songs/Songs'
 import { useArticlesContext } from '../context/ArticlesContext'
+import { useArtistsContext } from '../context/ArtistsContext'
+import { useSongsContext } from '../context/SongsContext'
 
 function Home() {
-  const { articles, setArticles } = useArticlesContext()
-  const [artists, setArtists] = useState<IArtist[] | null>(null)
-  const [artistsCovers, setArtistsCovers] = useState<string[] | null>(null)
-  const [songs, setSongs] = useState<ISong[] | null>(null)
-  const [songsCovers, setSongsCovers] = useState<string[] | null>(null)
+  const { setArticles } = useArticlesContext()
+  const { setArtists, setArtistsCovers } = useArtistsContext()
+  const { setSongs, setSongsCovers } = useSongsContext()
 
   useEffect(() => {
     const getData = async () => {
@@ -30,21 +30,9 @@ function Home() {
   return (
     <>
       <SlowDataInfo />
-      <Articles articles={articles} />
-      {artists &&
-        artistsCovers &&
-        artists.map((artist, idx) => (
-          <ArtistCard
-            key={artist._id}
-            artist={artist}
-            cover={artistsCovers[idx]}
-          />
-        ))}
-      {songs &&
-        songsCovers &&
-        songs.map((song, idx) => (
-          <SongCard key={song._id} song={song} cover={songsCovers[idx]} />
-        ))}
+      <Articles />
+      <Artists />
+      <Songs />
     </>
   )
 }

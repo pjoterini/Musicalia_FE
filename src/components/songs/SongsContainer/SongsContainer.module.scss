@@ -1,0 +1,9 @@
+$cover-width: 220px;
+
+.songsContainer {
+  display: grid;
+  justify-content: center;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, $cover-width);
+  padding: 2rem 0;
+}

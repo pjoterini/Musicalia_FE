@@ -1,0 +1,7 @@
+.artistsContainer {
+  display: grid;
+  justify-content: center;
+  gap: 50px;
+  grid-template-columns: repeat(auto-fill, 158px);
+  margin: 2rem 0;
+}
