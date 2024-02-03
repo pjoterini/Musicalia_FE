@@ -8,7 +8,11 @@
 .buttons {
   margin-top: 0.7rem;
 
-  :first-child {
+  .firstButton {
+    margin-right: 2rem;
+  }
+
+  .icon {
     margin-right: 1rem;
   }
 }

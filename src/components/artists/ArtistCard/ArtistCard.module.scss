@@ -49,10 +49,14 @@ $cover-size: 158px;
       margin-right: 1rem;
     }
 
+    .youtubeIconBackground {
+      background-color: white;
+      margin-top: 0.2rem;
+    }
+
     .youtubeIcon {
-      padding-top: 0.1rem;
-      transform: scale(1.8);
       color: $red;
+      transform: scale(2);
     }
   }
 }

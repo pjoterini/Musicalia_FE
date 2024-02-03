@@ -55,4 +55,11 @@ $cover-aspect-ratio: 1.4;
       padding: 0.5rem;
     }
   }
+
+  .extraInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+    color: $gray-2;
+  }
 }

@@ -2,6 +2,7 @@ import s from './SongCard.module.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { parseDate } from '../../../utility/parseDate'
 
 interface IProps {
   song: ISong
@@ -26,6 +27,10 @@ const SongCard = ({ song, cover }: IProps) => {
       <Link to={`/songs/${song._id}`}>
         <p className={s.description}>
           {song.artist.name} - {song.title} <span className={s.info}>INFO</span>
+        </p>
+        <p className={s.extraInfo}>
+          <span className={s.createdAt}>{parseDate(song)}</span>
+          <span className={s.rating}>{song.rating}/10</span>
         </p>
       </Link>
     </div>

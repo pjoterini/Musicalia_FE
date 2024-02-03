@@ -5,10 +5,13 @@ type ArticlesContextProviderProps = {
 }
 
 type Articles = IArticle[] | undefined
+type Query = string
 
 type ArticlesContext = {
   articles: Articles
   setArticles: React.Dispatch<React.SetStateAction<Articles>>
+  query: Query
+  setQuery: React.Dispatch<React.SetStateAction<Query>>
 }
 
 export const ArticlesContext = createContext<ArticlesContext | null>(null)
@@ -16,10 +19,13 @@ export const ArticlesContext = createContext<ArticlesContext | null>(null)
 const ArticlesContextProvider = ({
   children
 }: ArticlesContextProviderProps) => {
+  const [query, setQuery] = useState<string>('music')
   const [articles, setArticles] = useState<Articles>()
 
   return (
-    <ArticlesContext.Provider value={{ articles, setArticles }}>
+    <ArticlesContext.Provider
+      value={{ articles, setArticles, query, setQuery }}
+    >
       {children}
     </ArticlesContext.Provider>
   )

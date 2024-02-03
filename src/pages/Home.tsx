@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import SlowDataInfo from '../components/SlowDataInfo/SlowDataInfo'
 import Articles from '../components/articles/Articles'
-import Artists from '../components/artists/Artists'
-import Songs from '../components/songs/Songs'
+import ArtistsContainer from '../components/artists/ArtistsContainer/ArtistsContainer'
+import SectionTitle from '../components/common/SectionTitle/SectionTitle'
+import SongsContainer from '../components/songs/SongsContainer/SongsContainer'
 import { useArticlesContext } from '../context/ArticlesContext'
 import { useArtistsContext } from '../context/ArtistsContext'
 import { useSongsContext } from '../context/SongsContext'
+import { CardType } from '../types/common/CardContainer/enums'
 
 function Home() {
   const { setArticles } = useArticlesContext()
@@ -31,8 +33,10 @@ function Home() {
     <>
       <SlowDataInfo />
       <Articles />
-      <Artists />
-      <Songs />
+      <SectionTitle extra='Recently added'>Articles</SectionTitle>
+      <ArtistsContainer cardType={CardType.RECENT} />
+      <SectionTitle extra='Recently added'>Songs</SectionTitle>
+      <SongsContainer cardType={CardType.RECENT} />
     </>
   )
 }

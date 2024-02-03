@@ -4,12 +4,12 @@ import Content from './layout/Content/Content'
 import Footer from './layout/Footer/Footer'
 import Header from './layout/Header/Header'
 import Home from './pages/Home'
-import Artists from './pages/artist/Artists'
-import Songs from './pages/song/Songs'
-import EditArtist from './pages/artist/EditArtist'
-import NewSong from './pages/song/NewSong'
-import NewArtist from './pages/artist/NewArtist'
-import EditSong from './pages/song/EditSong'
+import ArtistsList from './pages/artists/ArtistsList'
+import SongsList from './pages/songs/SongsList'
+import EditArtist from './pages/artists/EditArtist'
+import NewSong from './pages/songs/NewSong'
+import NewArtist from './pages/artists/NewArtist'
+import EditSong from './pages/songs/EditSong'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
@@ -19,10 +19,10 @@ function App() {
       <Content>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/artists' element={<Artists />} />
+          <Route path='/artists' element={<ArtistsList />} />
           <Route path='/artists/new' element={<NewArtist />} />
           <Route path='/artists/:id' element={<EditArtist />} />
-          <Route path='/songs' element={<Songs />} />
+          <Route path='/songs' element={<SongsList />} />
           <Route path='/songs/new' element={<NewSong />} />
           <Route path='/songs/:id' element={<EditSong />} />
           <Route path='*' element={<NotFoundPage />} />

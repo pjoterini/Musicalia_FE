@@ -1,3 +1,7 @@
-.sectionTitle {
-  padding-bottom: 0rem;
+@use '/src/styles/variables' as *;
+
+.extra {
+  text-transform: capitalize;
+  color: $gray-2;
+  padding-left: 1rem;
 }

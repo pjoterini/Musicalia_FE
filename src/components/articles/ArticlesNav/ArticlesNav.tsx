@@ -2,7 +2,7 @@ import { useArticlesContext } from '../../../context/ArticlesContext'
 import s from './ArticlesNav.module.scss'
 
 const ArticlesNav = () => {
-  const { setArticles } = useArticlesContext()
+  const { setArticles, setQuery } = useArticlesContext()
   const queries = [
     'music',
     'songs',
@@ -26,6 +26,7 @@ const ArticlesNav = () => {
 
     const data = await response.json()
     setArticles(data)
+    setQuery(query)
   }
 
   return (

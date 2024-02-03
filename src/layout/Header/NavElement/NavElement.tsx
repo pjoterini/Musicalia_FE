@@ -13,15 +13,15 @@ function NavElement({ children }: IProps) {
       <h2>{children}</h2>
       <div className={s.buttons}>
         <Link to={`/${children}`}>
-          <button type='button'>
-            <FontAwesomeIcon icon={faList} />
+          <button className={s.firstButton} type='button'>
+            <FontAwesomeIcon className={s.icon} icon={faList} />
             LIST
           </button>
         </Link>
         <Link to={`/${children}/new`}>
           <button type='button'>
-            <FontAwesomeIcon icon={faPlus} />
-            ADD
+            <FontAwesomeIcon className={s.icon} icon={faPlus} />
+            NEW
           </button>
         </Link>
       </div>

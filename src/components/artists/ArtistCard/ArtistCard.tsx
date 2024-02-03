@@ -1,5 +1,4 @@
 import s from './ArtistCard.module.scss'
-// import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
@@ -26,7 +25,9 @@ const ArtistCard = ({ artist, cover }: IProps) => {
       </Link>
       <a className={s.nameWithLink} href={youtubeURL} target='_blank'>
         <p className={s.name}>{artist.name}</p>
-        <FontAwesomeIcon className={s.youtubeIcon} icon={faYoutube} />
+        <span className={s.youtubeIconBackground}>
+          <FontAwesomeIcon className={s.youtubeIcon} icon={faYoutube} />
+        </span>
       </a>
     </div>
   )
