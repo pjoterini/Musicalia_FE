@@ -1,0 +1,65 @@
+@use '/src/styles/variables' as *;
+
+$cover-width: 220px;
+$cover-width-large: 279px;
+$cover-aspect-ratio: 1.4;
+
+.songCard {
+  position: relative;
+
+  .imageLink {
+    position: relative;
+
+    &:hover {
+      .image {
+        filter: brightness(0.5);
+      }
+
+      .playIcon {
+        display: block;
+      }
+    }
+
+    .image {
+      width: $cover-width;
+      height: calc($cover-width / $cover-aspect-ratio);
+      object-fit: cover;
+    }
+
+    .playIcon {
+      display: none;
+      position: absolute;
+      bottom: calc($cover-width / $cover-aspect-ratio / 2);
+      left: 50%;
+      transform: translateX(-50%) translateY(50%) scale(3);
+    }
+  }
+
+  .description {
+    font-size: $font-size-xs;
+    margin-top: 0.5rem;
+
+    &:hover {
+      .info {
+        display: block;
+      }
+    }
+
+    .info {
+      display: none;
+      position: absolute;
+      top: calc($cover-width / $cover-aspect-ratio - 30px);
+      right: 0;
+      font-family: $font-1;
+      background-color: $dark-1;
+      padding: 0.5rem;
+    }
+  }
+
+  .extraInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+    color: $gray-2;
+  }
+}

@@ -1,0 +1,20 @@
+@use '/src/styles/variables' as *;
+
+.title {
+  font-size: $font-size-s;
+  padding-bottom: 0.4rem;
+  min-height: 3rem;
+  max-height: 3rem;
+}
+
+.image {
+  width: 279px;
+  height: 179px;
+  object-fit: cover;
+  background-color: $gray-2;
+}
+
+.description {
+  margin-top: 0.2rem;
+  color: $gray-2;
+}

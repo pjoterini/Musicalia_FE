@@ -1,0 +1,30 @@
+@use '/src/styles/variables' as *;
+
+.articlesNav {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  button {
+    margin: 0.5rem 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .input {
+    width: 100px;
+    outline: none;
+    border: none;
+    background-color: $dark-1;
+    color: $white;
+    font-size: $font-size-s;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    transition: $transition-1;
+
+    &:hover {
+      background-color: $dark-3;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use '/src/styles/variables' as *;
+
+.artistEditCard {
+  display: flex;
+
+  .detailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+
+    .details {
+      display: flex;
+
+      .keys {
+        display: flex;
+        flex-direction: column;
+        margin-right: 2rem;
+
+        .key {
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+        }
+      }
+      .values {
+        display: flex;
+        flex-direction: column;
+        margin-right: 2rem;
+      }
+      .value {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 1rem;
+    width: 150px;
+  }
+}

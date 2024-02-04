@@ -1,4 +1,3 @@
-import Button from '../../../components/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faPlus } from '@fortawesome/free-solid-svg-icons'
 import s from './NavElement.module.scss'
@@ -14,16 +13,16 @@ function NavElement({ children }: IProps) {
       <h2>{children}</h2>
       <div className={s.buttons}>
         <Link to={`/${children}`}>
-          <Button>
-            <FontAwesomeIcon icon={faList} />
+          <button className={s.firstButton} type='button'>
+            <FontAwesomeIcon className={s.icon} icon={faList} />
             LIST
-          </Button>
+          </button>
         </Link>
         <Link to={`/${children}/new`}>
-          <Button>
-            <FontAwesomeIcon icon={faPlus} />
-            ADD
-          </Button>
+          <button type='button'>
+            <FontAwesomeIcon className={s.icon} icon={faPlus} />
+            NEW
+          </button>
         </Link>
       </div>
     </div>

@@ -1,0 +1,62 @@
+@use '/src/styles/variables' as *;
+
+$cover-size: 158px;
+
+.artistCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .imageContainer {
+    position: relative;
+
+    &:hover {
+      .image {
+        filter: brightness(0.5);
+      }
+
+      .info {
+        display: block;
+      }
+    }
+
+    .image {
+      width: $cover-size;
+      height: $cover-size;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .info {
+      display: none;
+      position: absolute;
+      top: calc($cover-size / 2);
+      left: calc($cover-size / 2);
+      transform: translateX(-50%) translateY(-50%);
+      font-family: $font-1;
+      font-size: $font-size-m;
+      padding: 0.5rem;
+    }
+  }
+
+  .nameWithLink {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    .name {
+      font-size: $font-size-s;
+      margin-right: 1rem;
+    }
+
+    .youtubeIconBackground {
+      background-color: white;
+      margin-top: 0.2rem;
+    }
+
+    .youtubeIcon {
+      color: $red;
+      transform: scale(2);
+    }
+  }
+}

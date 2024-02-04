@@ -24,6 +24,10 @@
   width: 100vw;
   border-bottom: 1px solid $white;
   color: $white;
+
+  span {
+    filter: grayscale(0.8) brightness(1.4);
+  }
 }
 
 .navigationContainer {
