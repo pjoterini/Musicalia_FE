@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import SectionTitle from '../../components/common/SectionTitle/SectionTitle'
 import SongsContainer from '../../components/songs/SongsContainer/SongsContainer'
 import { useSongsContext } from '../../context/SongsContext'
-import { CardType } from '../../types/common/CardContainer/enums'
+import { ContainerType } from '../../types/common/CardContainer/enums'
 import { SONGS_LIST } from '../routes'
 
 function SongsList() {
@@ -26,7 +26,7 @@ function SongsList() {
     <>
       <SectionTitle extra='all'>Songs</SectionTitle>
       <SongsContainer
-        cardType={CardType.EDIT}
+        containerType={ContainerType.ALL}
         gridStyle={{
           gridTemplateColumns: 'repeat(auto-fill, 220px)'
         }}

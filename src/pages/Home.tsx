@@ -7,12 +7,12 @@ import SongsContainer from '../components/songs/SongsContainer/SongsContainer'
 import { useArticlesContext } from '../context/ArticlesContext'
 import { useArtistsContext } from '../context/ArtistsContext'
 import { useSongsContext } from '../context/SongsContext'
-import { CardType } from '../types/common/CardContainer/enums'
+import { ContainerType } from '../types/common/CardContainer/enums'
 
 function Home() {
   const { setArticles } = useArticlesContext()
-  const { setArtists, setArtistsCovers } = useArtistsContext()
-  const { setSongs, setSongsCovers } = useSongsContext()
+  const { artists, setArtists } = useArtistsContext()
+  const { songs, setSongs } = useSongsContext()
 
   useEffect(() => {
     const getData = async () => {
@@ -21,9 +21,7 @@ function Home() {
 
       setArticles(data.articles)
       setArtists(data.artists)
-      setArtistsCovers(data.artistsCovers)
       setSongs(data.songs)
-      setSongsCovers(data.songsCovers)
     }
 
     getData()
@@ -34,9 +32,16 @@ function Home() {
       <SlowDataInfo />
       <Articles />
       <SectionTitle extra='Recently added'>Articles</SectionTitle>
-      <ArtistsContainer cardType={CardType.RECENT} />
+      {artists && (
+        <ArtistsContainer
+          artists={artists}
+          containerType={ContainerType.RECENT}
+        />
+      )}
       <SectionTitle extra='Recently added'>Songs</SectionTitle>
-      <SongsContainer cardType={CardType.RECENT} />
+      {songs && (
+        <SongsContainer songs={songs} containerType={ContainerType.RECENT} />
+      )}
     </>
   )
 }

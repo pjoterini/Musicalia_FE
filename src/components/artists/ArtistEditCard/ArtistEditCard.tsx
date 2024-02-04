@@ -1,16 +1,18 @@
 import s from './ArtistEditCard.module.scss'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import { parseDate } from '../../../utility/parseDate'
+import { Link } from 'react-router-dom'
+import { EDIT_ARTIST } from '../../../pages/routes'
+import { IArtist } from '../../../types/artists/interfaces'
 
 interface IProps {
   artist: IArtist
-  cover: string
 }
 
-const ArtistEditCard = ({ artist, cover }: IProps) => {
+const ArtistEditCard = ({ artist }: IProps) => {
   return (
     <div className={s.artistEditCard}>
-      <ArtistCard artist={artist} cover={cover} />
+      <ArtistCard artist={artist} />
       <div className={s.detailsContainer}>
         <div className={s.details}>
           <div className={s.keys}>
@@ -24,7 +26,9 @@ const ArtistEditCard = ({ artist, cover }: IProps) => {
             <p className={s.value}>{parseDate(artist)}</p>
           </div>
         </div>
-        <button className={s.btn}>Edit</button>
+        <Link to={`${EDIT_ARTIST}${artist._id}`}>
+          <button className={s.btn}>Edit</button>
+        </Link>
       </div>
     </div>
   )

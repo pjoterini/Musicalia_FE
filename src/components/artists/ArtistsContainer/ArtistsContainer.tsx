@@ -1,39 +1,36 @@
-import s from './ArtistsContainer.module.scss'
-import { useEffect } from 'react'
-import { useArtistsContext } from '../../../context/ArtistsContext'
+import { useEffect, useState } from 'react'
+import { IArtist, IArtistsContainer } from '../../../types/artists/interfaces'
+import { ContainerType } from '../../../types/common/CardContainer/enums'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import ArtistEditCard from '../ArtistEditCard/ArtistEditCard'
-import { ICardsContainer } from '../../../types/common/CardContainer/interfaces'
-import { CardType } from '../../../types/common/CardContainer/enums'
+import s from './ArtistsContainer.module.scss'
 
-const ArtistsContainer = ({ cardType, gridStyle }: ICardsContainer) => {
-  const { artists, artistsCovers } = useArtistsContext()
+const ArtistsContainer = ({
+  artists,
+  containerType,
+  gridStyle
+}: IArtistsContainer) => {
+  const [slicedArtists, setSlicedArtists] = useState<IArtist[] | undefined>(
+    artists
+  )
 
   useEffect(() => {
-    cardType === CardType.RECENT && artists?.slice(0, 6)
+    if (containerType === ContainerType.RECENT) {
+      setSlicedArtists(artists?.slice(0, 6))
+    }
   }, [])
 
   return (
     <div className={s.artistsContainer} style={gridStyle}>
-      {artists &&
-        artistsCovers &&
-        cardType === CardType.RECENT &&
-        artists.map((artist, idx) => (
-          <ArtistCard
-            key={artist._id}
-            artist={artist}
-            cover={artistsCovers[idx]}
-          />
+      {slicedArtists &&
+        containerType === ContainerType.RECENT &&
+        slicedArtists.map((artist) => (
+          <ArtistCard key={artist._id} artist={artist} />
         ))}
-      {artists &&
-        artistsCovers &&
-        cardType === CardType.EDIT &&
-        artists.map((artist, idx) => (
-          <ArtistEditCard
-            key={artist._id}
-            artist={artist}
-            cover={artistsCovers[idx]}
-          />
+      {slicedArtists &&
+        containerType === ContainerType.ALL &&
+        slicedArtists.map((artist) => (
+          <ArtistEditCard key={artist._id} artist={artist} />
         ))}
     </div>
   )

@@ -20,11 +20,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/artists' element={<ArtistsList />} />
-          <Route path='/artists/new' element={<NewArtist />} />
           <Route path='/artists/:id' element={<EditArtist />} />
+          <Route path='/artists/new' element={<NewArtist />} />
           <Route path='/songs' element={<SongsList />} />
-          <Route path='/songs/new' element={<NewSong />} />
           <Route path='/songs/:id' element={<EditSong />} />
+          <Route path='/songs/new' element={<NewSong />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Content>

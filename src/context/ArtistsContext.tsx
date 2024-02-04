@@ -5,25 +5,19 @@ type ArtistsContextProviderProps = {
 }
 
 type Artists = IArtist[] | undefined
-type ArtistsCovers = string[] | undefined
 
 type ArtistsContext = {
   artists: Artists
   setArtists: React.Dispatch<React.SetStateAction<Artists>>
-  artistsCovers: ArtistsCovers
-  setArtistsCovers: React.Dispatch<React.SetStateAction<ArtistsCovers>>
 }
 
 export const ArtistsContext = createContext<ArtistsContext | null>(null)
 
 const ArtistsContextProvider = ({ children }: ArtistsContextProviderProps) => {
   const [artists, setArtists] = useState<Artists>()
-  const [artistsCovers, setArtistsCovers] = useState<ArtistsCovers>()
 
   return (
-    <ArtistsContext.Provider
-      value={{ artists, setArtists, artistsCovers, setArtistsCovers }}
-    >
+    <ArtistsContext.Provider value={{ artists, setArtists }}>
       {children}
     </ArtistsContext.Provider>
   )

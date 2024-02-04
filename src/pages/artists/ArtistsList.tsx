@@ -3,10 +3,10 @@ import ArtistsContainer from '../../components/artists/ArtistsContainer/ArtistsC
 import SectionTitle from '../../components/common/SectionTitle/SectionTitle'
 import { useArtistsContext } from '../../context/ArtistsContext'
 import { ARTISTS_LIST } from '../routes'
-import { CardType } from '../../types/common/CardContainer/enums'
+import { ContainerType } from '../../types/common/CardContainer/enums'
 
 function ArtistsList() {
-  const { setArtists, setArtistsCovers } = useArtistsContext()
+  const { setArtists } = useArtistsContext()
 
   useEffect(() => {
     const getArtists = async () => {
@@ -16,7 +16,6 @@ function ArtistsList() {
       const data = await response.json()
 
       setArtists(data.artists)
-      setArtistsCovers(data.artistsCovers)
     }
 
     getArtists()
@@ -26,7 +25,7 @@ function ArtistsList() {
     <>
       <SectionTitle extra='all'>Artists</SectionTitle>
       <ArtistsContainer
-        cardType={CardType.EDIT}
+        containerType={ContainerType.ALL}
         gridStyle={{
           gridTemplateColumns: 'repeat(auto-fill, 500px)'
         }}

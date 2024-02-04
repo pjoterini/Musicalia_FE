@@ -5,25 +5,19 @@ type SongsContextProviderProps = {
 }
 
 type Songs = ISong[] | undefined
-type SongsCovers = string[] | undefined
 
 type SongsContext = {
   songs: Songs
   setSongs: React.Dispatch<React.SetStateAction<Songs>>
-  songsCovers: SongsCovers
-  setSongsCovers: React.Dispatch<React.SetStateAction<SongsCovers>>
 }
 
 export const SongsContext = createContext<SongsContext | null>(null)
 
 const SongsContextProvider = ({ children }: SongsContextProviderProps) => {
   const [songs, setSongs] = useState<Songs>()
-  const [songsCovers, setSongsCovers] = useState<SongsCovers>()
 
   return (
-    <SongsContext.Provider
-      value={{ songs, setSongs, songsCovers, setSongsCovers }}
-    >
+    <SongsContext.Provider value={{ songs, setSongs }}>
       {children}
     </SongsContext.Provider>
   )

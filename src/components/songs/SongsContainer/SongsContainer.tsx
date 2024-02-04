@@ -1,24 +1,30 @@
-import { useEffect } from 'react'
-import { useSongsContext } from '../../../context/SongsContext'
-import { CardType } from '../../../types/common/CardContainer/enums'
-import { ICardsContainer } from '../../../types/common/CardContainer/interfaces'
+import { useEffect, useState } from 'react'
+import { ContainerType } from '../../../types/common/CardContainer/enums'
+import { ISong, ISongsContainer } from '../../../types/songs/interfaces'
 import SongCard from '../SongCard/SongCard'
 import s from './SongsContainer.module.scss'
 
-const SongsContainer = ({ cardType, gridStyle }: ICardsContainer) => {
-  const { songs, songsCovers } = useSongsContext()
+const SongsContainer = ({
+  songs,
+  containerType,
+  gridStyle
+}: ISongsContainer) => {
+  const [slicedSongs, setSlicedSongs] = useState<ISong[] | undefined>(songs)
 
   useEffect(() => {
-    cardType === CardType.RECENT && songs?.slice(0, 10)
+    if (containerType === ContainerType.RECENT) {
+      setSlicedSongs(songs?.slice(0, 10))
+    }
   }, [])
 
   return (
     <div className={s.songsContainer} style={gridStyle}>
+      {slicedSongs &&
+        containerType === ContainerType.RECENT &&
+        slicedSongs.map((song) => <SongCard key={song._id} song={song} />)}
       {songs &&
-        songsCovers &&
-        songs.map((song, idx) => (
-          <SongCard key={song._id} song={song} cover={songsCovers[idx]} />
-        ))}
+        containerType === ContainerType.ALL &&
+        songs.map((song) => <SongCard key={song._id} song={song} />)}
     </div>
   )
 }

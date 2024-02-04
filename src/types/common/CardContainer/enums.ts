@@ -1,4 +1,4 @@
-export enum CardType {
+export enum ContainerType {
   RECENT = 'recent',
-  EDIT = 'edit'
+  ALL = 'edit'
 }
