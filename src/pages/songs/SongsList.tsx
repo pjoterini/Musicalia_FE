@@ -6,7 +6,7 @@ import { ContainerType } from '../../types/common/CardContainer/enums'
 import { SONGS_LIST } from '../routes'
 
 function SongsList() {
-  const { setSongs, setSongsCovers } = useSongsContext()
+  const { songs, setSongs } = useSongsContext()
 
   useEffect(() => {
     const getSongs = async () => {
@@ -16,7 +16,6 @@ function SongsList() {
       const data = await response.json()
 
       setSongs(data.songs)
-      setSongsCovers(data.songsCovers)
     }
 
     getSongs()
@@ -25,12 +24,15 @@ function SongsList() {
   return (
     <>
       <SectionTitle extra='all'>Songs</SectionTitle>
-      <SongsContainer
-        containerType={ContainerType.ALL}
-        gridStyle={{
-          gridTemplateColumns: 'repeat(auto-fill, 220px)'
-        }}
-      />
+      {songs && (
+        <SongsContainer
+          songs={songs}
+          containerType={ContainerType.ALL}
+          gridStyle={{
+            gridTemplateColumns: 'repeat(auto-fill, 220px)'
+          }}
+        />
+      )}
     </>
   )
 }

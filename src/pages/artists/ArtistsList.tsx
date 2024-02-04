@@ -6,7 +6,7 @@ import { ARTISTS_LIST } from '../routes'
 import { ContainerType } from '../../types/common/CardContainer/enums'
 
 function ArtistsList() {
-  const { setArtists } = useArtistsContext()
+  const { artists, setArtists } = useArtistsContext()
 
   useEffect(() => {
     const getArtists = async () => {
@@ -24,12 +24,15 @@ function ArtistsList() {
   return (
     <>
       <SectionTitle extra='all'>Artists</SectionTitle>
-      <ArtistsContainer
-        containerType={ContainerType.ALL}
-        gridStyle={{
-          gridTemplateColumns: 'repeat(auto-fill, 500px)'
-        }}
-      />
+      {artists && (
+        <ArtistsContainer
+          artists={artists}
+          containerType={ContainerType.ALL}
+          gridStyle={{
+            gridTemplateColumns: 'repeat(auto-fill, 500px)'
+          }}
+        />
+      )}
     </>
   )
 }

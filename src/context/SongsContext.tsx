@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { ISong } from '../types/songs/interfaces'
 
 type SongsContextProviderProps = {
   children: React.ReactNode

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { IArtist } from '../types/artists/interfaces'
 
 type ArtistsContextProviderProps = {
   children: React.ReactNode
