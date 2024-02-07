@@ -1,0 +1,29 @@
+@use '../variables' as *;
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+h1 {
+  font-family: $font-1;
+  font-size: $font-size-logo;
+  font-weight: $font-weight-l;
+}
+
+h2 {
+  font-family: $font-1;
+  font-size: $font-size-l;
+  font-weight: $font-weight-s;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: $font-size-l;
+  font-weight: $font-weight-s;
+}
+
+.error {
+  color: $red;
+  margin-bottom: 0.5rem;
+}

@@ -2,7 +2,7 @@ import s from './ArtistCard.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
-import { EDIT_ARTIST } from '../../../pages/routes'
+import { UPDATE_ARTIST } from '../../../pages/routes'
 import { IArtist } from '../../../types/artists/interfaces'
 
 interface IProps {
@@ -14,7 +14,7 @@ const ArtistCard = ({ artist }: IProps) => {
 
   return (
     <div className={s.artistCard}>
-      <Link to={`${EDIT_ARTIST}${artist._id}`}>
+      <Link to={`${UPDATE_ARTIST}${artist._id}`}>
         <div className={s.imageContainer}>
           <img
             className={s.image}

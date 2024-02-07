@@ -1,0 +1,32 @@
+@use '../variables' as *;
+
+label {
+  font-size: $font-size-s;
+  color: $white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+input,
+select,
+textarea {
+  height: 2.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid $gray-2;
+  background-color: $black;
+  color: $white;
+  font-size: $font-size-s;
+  outline: none;
+}
+
+textarea {
+  height: 100%;
+  resize: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border: 1px solid $white;
+}

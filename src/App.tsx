@@ -1,4 +1,4 @@
-import './styles/global.scss'
+import './styles/global/global.scss'
 import { Route, Routes } from 'react-router-dom'
 import Content from './layout/Content/Content'
 import Footer from './layout/Footer/Footer'
@@ -7,8 +7,8 @@ import Home from './pages/Home'
 import ArtistsList from './pages/artists/ArtistsList'
 import SongsList from './pages/songs/SongsList'
 import EditArtist from './pages/artists/EditArtist'
-import NewSong from './pages/songs/NewSong'
-import NewArtist from './pages/artists/NewArtist'
+import CreateSong from './pages/songs/CreateSong'
+import CreateArtist from './pages/artists/CreateArtist'
 import EditSong from './pages/songs/EditSong'
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -19,12 +19,16 @@ function App() {
       <Content>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/artists' element={<ArtistsList />} />
-          <Route path='/artists/:id' element={<EditArtist />} />
-          <Route path='/artists/new' element={<NewArtist />} />
-          <Route path='/songs' element={<SongsList />} />
-          <Route path='/songs/:id' element={<EditSong />} />
-          <Route path='/songs/new' element={<NewSong />} />
+          <Route path='/artists'>
+            <Route index element={<ArtistsList />} />
+            <Route path=':id' element={<EditArtist />} />
+            <Route path='new' element={<CreateArtist />} />
+          </Route>
+          <Route path='/songs'>
+            <Route index element={<SongsList />} />
+            <Route path=':id' element={<EditSong />} />
+            <Route path='new' element={<CreateSong />} />
+          </Route>
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Content>

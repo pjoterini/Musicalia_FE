@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { parseDate } from '../../../utility/parseDate'
-import { EDIT_SONG } from '../../../pages/routes'
+import { UPDATE_SONG } from '../../../pages/routes'
 import { ISong } from '../../../types/songs/interfaces'
 
 interface IProps {
@@ -25,7 +25,7 @@ const SongCard = ({ song }: IProps) => {
           <FontAwesomeIcon icon={faPlay} />
         </div>
       </a>
-      <Link to={`${EDIT_SONG}${song._id}`}>
+      <Link to={`${UPDATE_SONG}${song._id}`}>
         <p className={s.description}>
           {song.artist.name} - {song.title} <span className={s.info}>INFO</span>
         </p>

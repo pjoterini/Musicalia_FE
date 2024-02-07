@@ -18,7 +18,7 @@ function ArtistsList() {
       setArtists(data.artists)
     }
 
-    getArtists()
+    !artists && getArtists()
   }, [])
 
   return (

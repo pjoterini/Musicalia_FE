@@ -1,3 +1,22 @@
+.artistInfo {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
 .artistForm {
-  border: 1px solid white;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .submitInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    :last-child {
+      margin-left: 1rem;
+    }
+  }
 }

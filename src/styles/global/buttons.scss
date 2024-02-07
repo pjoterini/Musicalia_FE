@@ -1,0 +1,54 @@
+@use '../variables' as *;
+
+button {
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: $dark-1;
+  color: $white;
+  border: 2px solid $white;
+  border-radius: 3rem;
+  font-size: $font-size-s;
+  cursor: pointer;
+
+  transition: $transition-1;
+
+  &:hover {
+    background-color: $dark-3;
+    box-shadow: inset 0px 0px 0px 1px;
+  }
+}
+
+.submit-input {
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: $dark-1;
+  color: $white;
+  border: 2px solid $white;
+  border-radius: 3rem;
+  font-size: $font-size-s;
+  cursor: pointer;
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  transition: $transition-1;
+
+  &:hover {
+    background-color: $dark-3;
+    box-shadow: inset 0px 0px 0px 1px;
+  }
+}
+
+.danger {
+  color: $red;
+  border: 2px solid $red;
+}
+
+.active {
+  button {
+    border-color: $green;
+
+    &:hover {
+      box-shadow: inset 0px 0px 0px 0px;
+    }
+  }
+}
