@@ -1,27 +1,24 @@
 import { SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import ArtistForm, {
   ArtistInputs
 } from '../../components/artists/ArtistForm/ArtistForm'
 import SectionTitle from '../../components/common/SectionTitle/SectionTitle'
 import { useArtistsContext } from '../../context/ArtistsContext'
-import { IArtist } from '../../types/artists/interfaces'
-import { ARTISTS_LIST, NEW_ARTIST } from '../routes'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import {
+  CRUDFormState,
+  useCRUDFormStateContext
+} from '../../context/CRUDFormStateContext'
 import { CRUDFormType } from '../../types/common/CRUDForm/enums'
+import { NEW_ARTIST, UPDATE_ARTIST } from '../routes'
 
 function CreateArtist() {
-  const navigate = useNavigate()
-  const [submitted, setSubmitted] = useState<boolean>(false)
   const { setArtists } = useArtistsContext()
-
-  useEffect(() => {
-    if (submitted) navigate(ARTISTS_LIST)
-  }, [submitted])
+  const { setState } = useCRUDFormStateContext()
+  const navigate = useNavigate()
 
   const createArtist: SubmitHandler<ArtistInputs> = async (data) => {
     try {
-      console.log('runs')
       const formData = new FormData()
 
       formData.append('name', data.name)
@@ -41,11 +38,13 @@ function CreateArtist() {
         }
       )
 
-      const createdArtist: IArtist = await response.json()
+      const { createdArtist } = await response.json()
+      console.log(createdArtist)
 
       setArtists((prev) => prev && [...prev, { ...createdArtist }])
-      setSubmitted(true)
+      navigate(`${UPDATE_ARTIST}${createdArtist._id}`)
     } catch (error) {
+      setState(CRUDFormState.ERROR)
       console.error(error)
     }
   }

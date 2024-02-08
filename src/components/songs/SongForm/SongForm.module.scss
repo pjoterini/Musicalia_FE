@@ -1,0 +1,28 @@
+.songInfo {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+
+  .cards {
+    display: grid;
+    gap: 1rem;
+    transform: scale(0.8);
+  }
+}
+
+.songForm {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .submitInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    :last-child {
+      margin-left: 1rem;
+    }
+  }
+}

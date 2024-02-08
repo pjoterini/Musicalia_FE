@@ -1,8 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { IArtist } from '../../../types/artists/interfaces'
-import { CRUDFormType } from '../../../types/common/CRUDForm/enums'
+
 import ArtistCard from '../ArtistCard/ArtistCard'
 import s from './ArtistForm.module.scss'
+import { CRUDFormType } from '../../../types/common/CRUDForm/enums'
+import {
+  CRUDFormState,
+  useCRUDFormStateContext
+} from '../../../context/CRUDFormStateContext'
 
 interface IProps {
   formType: CRUDFormType
@@ -26,6 +31,7 @@ export default function ArtistForm({
   updateArtist,
   deleteArtist
 }: IProps) {
+  const { state } = useCRUDFormStateContext()
   const isEditForm = formType === CRUDFormType.EDIT
 
   const {
@@ -57,7 +63,7 @@ export default function ArtistForm({
           placeholder={artist ? artist.name : ''}
           {...register('name', {
             required: 'This field is required',
-            minLength: { value: 1, message: 'Minimum length is 1' }
+            minLength: { value: 2, message: 'Minimum length is 2' }
           })}
         />
         <p className='error'> {errors.name?.message}</p>
@@ -67,7 +73,7 @@ export default function ArtistForm({
           placeholder={artist ? artist.genre : ''}
           {...register('genre', {
             required: 'This field is required',
-            minLength: { value: 1, message: 'Minimum length is 1' }
+            minLength: { value: 2, message: 'Minimum length is 2' }
           })}
         />
         <p className='error'>{errors.genre?.message}</p>
@@ -77,8 +83,14 @@ export default function ArtistForm({
           type='number'
           {...register('rating', {
             required: 'This field is required',
-            min: 1,
-            max: 10
+            min: {
+              value: 1,
+              message: 'Rating values are numbers between 1 and 10'
+            },
+            max: {
+              value: 10,
+              message: 'Rating values are numbers between 1 and 10'
+            }
           })}
         />
         <p className='error'>{errors.rating?.message}</p>
@@ -86,6 +98,7 @@ export default function ArtistForm({
         <input
           id='cover'
           type='file'
+          accept='image/jpeg'
           {...register('cover', {
             required: isEditForm ? false : 'This field is required'
           })}
@@ -99,6 +112,12 @@ export default function ArtistForm({
             </button>
           )}
         </div>
+        {state === CRUDFormState.SUCCESS && (
+          <p className='success'>Updated successfully</p>
+        )}
+        {state === CRUDFormState.ERROR && (
+          <p className='error'>Something went wrong</p>
+        )}
       </form>
     </div>
   )

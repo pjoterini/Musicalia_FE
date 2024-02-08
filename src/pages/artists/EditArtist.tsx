@@ -12,20 +12,23 @@ import { ContainerType } from '../../types/common/CardContainer/enums'
 import { ISong } from '../../types/songs/interfaces'
 import { ARTISTS_LIST, UPDATE_ARTIST } from '../routes'
 import { CRUDFormType } from '../../types/common/CRUDForm/enums'
+import {
+  CRUDFormState,
+  useCRUDFormStateContext
+} from '../../context/CRUDFormStateContext'
 
 function EditArtist() {
-  const navigate = useNavigate()
   const { id } = useParams()
-  const [submitted, setSubmitted] = useState<boolean>(false)
+  const { setState } = useCRUDFormStateContext()
   const { setArtists } = useArtistsContext()
   const [artist, setArtist] = useState<IArtist | undefined>()
   const [songs, setSongs] = useState<ISong[] | undefined>()
+  const navigate = useNavigate()
 
   const updateArtist: SubmitHandler<ArtistInputs> = async (data) => {
     try {
       const formData = new FormData()
 
-      artist && formData.append('id', artist._id)
       formData.append('name', data.name)
       formData.append('genre', data.genre)
       formData.append('rating', data.rating.toString())
@@ -39,8 +42,7 @@ function EditArtist() {
         }
       )
 
-      const responseObj: { updatedArtist: IArtist } = await response.json()
-      const updatedArtist = responseObj.updatedArtist
+      const { updatedArtist } = await response.json()
 
       setArtists((prev) =>
         prev?.map((artist) => {
@@ -50,7 +52,9 @@ function EditArtist() {
           return artist
         })
       )
+      setState(CRUDFormState.SUCCESS)
     } catch (error) {
+      setState(CRUDFormState.ERROR)
       console.error(error)
     }
   }
@@ -71,21 +75,18 @@ function EditArtist() {
           }
         )
 
-        const deletedArtistId = await response.json()
+        const { _id } = await response.json()
 
-        setArtists((prev) =>
-          prev?.filter((artist) => artist._id !== deletedArtistId)
-        )
-        setSubmitted(true)
+        setArtists((prev) => prev?.filter((artist) => artist._id !== _id))
+        navigate(ARTISTS_LIST, { replace: true })
       } catch (error) {
+        setState(CRUDFormState.ERROR)
         console.error(error)
       }
     }
   }
 
   useEffect(() => {
-    if (submitted) navigate(ARTISTS_LIST, { replace: true })
-
     const getArtist = async () => {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}${UPDATE_ARTIST}${id}`
@@ -97,7 +98,8 @@ function EditArtist() {
     }
 
     !artist && getArtist()
-  }, [submitted])
+    !artist && setState(CRUDFormState.PENDING)
+  }, [])
 
   return (
     <>
