@@ -1,17 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ISong } from '../../../types/songs/interfaces'
-
 import { useArtistsContext } from '../../../context/ArtistsContext'
-import {
-  CRUDFormState,
-  useCRUDFormStateContext
-} from '../../../context/CRUDFormStateContext'
 import { CRUDFormType } from '../../../types/common/CRUDForm/enums'
 import SongCard from '../SongCard/SongCard'
 import s from './SongForm.module.scss'
 import { useEffect } from 'react'
 import ArtistCard from '../../artists/ArtistCard/ArtistCard'
 import { ARTISTS_LIST } from '../../../pages/routes'
+import FormSubmitMessage from '../../common/FormSubmitMessage/FormSubmitMessage'
 
 interface IProps {
   formType: CRUDFormType
@@ -36,7 +32,7 @@ export default function SongForm({
   deleteSong
 }: IProps) {
   const { artists, setArtists } = useArtistsContext()
-  const { state } = useCRUDFormStateContext()
+
   const isEditForm = formType === CRUDFormType.EDIT
 
   useEffect(() => {
@@ -65,7 +61,7 @@ export default function SongForm({
   })
 
   return (
-    <div className={s.songInfo}>
+    <div className='form-info'>
       {song && (
         <div className={s.cards}>
           <SongCard song={song} />
@@ -104,9 +100,9 @@ export default function SongForm({
           ))}
         </select>
         <p className='error'>{errors.artistID?.message}</p>
-
         <label htmlFor='genre'>Genre</label>
         <input
+          className={s.disabledInput}
           id='genre'
           placeholder={
             song ? song.artist.genre : 'Selected artist genre will be assigned'
@@ -149,12 +145,7 @@ export default function SongForm({
             </button>
           )}
         </div>
-        {state === CRUDFormState.SUCCESS && (
-          <p className='success'>Updated successfully</p>
-        )}
-        {state === CRUDFormState.ERROR && (
-          <p className='error'>Something went wrong</p>
-        )}
+        <FormSubmitMessage />
       </form>
     </div>
   )

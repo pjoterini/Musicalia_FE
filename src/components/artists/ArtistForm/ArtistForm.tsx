@@ -1,13 +1,9 @@
+import s from './ArtistForm.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { IArtist } from '../../../types/artists/interfaces'
-
-import ArtistCard from '../ArtistCard/ArtistCard'
-import s from './ArtistForm.module.scss'
 import { CRUDFormType } from '../../../types/common/CRUDForm/enums'
-import {
-  CRUDFormState,
-  useCRUDFormStateContext
-} from '../../../context/CRUDFormStateContext'
+import FormSubmitMessage from '../../common/FormSubmitMessage/FormSubmitMessage'
+import ArtistCard from '../ArtistCard/ArtistCard'
 
 interface IProps {
   formType: CRUDFormType
@@ -17,7 +13,7 @@ interface IProps {
   deleteArtist?: () => Promise<void>
 }
 
-export type ArtistInputs = {
+export interface ArtistInputs {
   name: string
   genre: string
   rating: number
@@ -31,7 +27,6 @@ export default function ArtistForm({
   updateArtist,
   deleteArtist
 }: IProps) {
-  const { state } = useCRUDFormStateContext()
   const isEditForm = formType === CRUDFormType.EDIT
 
   const {
@@ -47,8 +42,10 @@ export default function ArtistForm({
   })
 
   return (
-    <div className={s.artistInfo}>
-      {artist && <ArtistCard artist={artist} />}
+    <div className='form-info'>
+      <div className={s.artistCardContainer}>
+        {artist && <ArtistCard artist={artist} />}
+      </div>
       <form
         className={s.artistForm}
         onSubmit={handleSubmit(
@@ -85,11 +82,11 @@ export default function ArtistForm({
             required: 'This field is required',
             min: {
               value: 1,
-              message: 'Rating values are numbers between 1 and 10'
+              message: 'Rating must be a value between 1 and 10'
             },
             max: {
               value: 10,
-              message: 'Rating values are numbers between 1 and 10'
+              message: 'Rating must be a value between 1 and 10'
             }
           })}
         />
@@ -112,12 +109,7 @@ export default function ArtistForm({
             </button>
           )}
         </div>
-        {state === CRUDFormState.SUCCESS && (
-          <p className='success'>Updated successfully</p>
-        )}
-        {state === CRUDFormState.ERROR && (
-          <p className='error'>Something went wrong</p>
-        )}
+        <FormSubmitMessage />
       </form>
     </div>
   )

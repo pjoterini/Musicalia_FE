@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import SlowDataInfo from '../components/SlowDataInfo/SlowDataInfo'
 import Articles from '../components/articles/Articles'
 import ArtistsContainer from '../components/artists/ArtistsContainer/ArtistsContainer'
@@ -13,6 +13,7 @@ function Home() {
   const { setArticles } = useArticlesContext()
   const { artists, setArtists } = useArtistsContext()
   const { songs, setSongs } = useSongsContext()
+  const [isServerAlive, setIsServerAlive] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -22,6 +23,7 @@ function Home() {
       setArticles(data.articles)
       setArtists(data.artists)
       setSongs(data.songs)
+      setIsServerAlive(true)
     }
 
     getData()
@@ -29,7 +31,7 @@ function Home() {
 
   return (
     <>
-      <SlowDataInfo />
+      {!isServerAlive && <SlowDataInfo />}
       <Articles />
       <SectionTitle extra='Recently added'>Articles</SectionTitle>
       {artists && (

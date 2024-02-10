@@ -23,11 +23,47 @@ h3 {
   font-weight: $font-weight-s;
 }
 
+.error,
+.success {
+  font-size: $font-size-s;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 .error {
   color: $red;
-  margin-top: 0.5rem;
 }
+
 .success {
   color: $green;
-  margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  // h1 {
+  //   font-size: $font-size-l;
+  // }
+
+  // h2 {
+  //   font-size: $font-size-m;
+  // }
+
+  // h3 {
+  //   font-size: $font-size-m;
+  // }
+}
+
+@media (max-width: 720px) {
+  h1 {
+    font-size: $font-size-xl;
+    padding-left: 1rem;
+  }
+
+  h2 {
+    font-size: $font-size-m;
+  }
+
+  h3 {
+    font-size: $font-size-s;
+    font-weight: $font-weight-l;
+  }
 }

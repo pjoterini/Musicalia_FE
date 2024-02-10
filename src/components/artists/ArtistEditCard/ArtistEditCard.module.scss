@@ -37,3 +37,26 @@
     width: 150px;
   }
 }
+
+@media (max-width: 720px) {
+  .artistEditCard {
+    justify-content: center;
+
+    .detailsContainer {
+      padding-left: 1rem;
+      .details {
+        .keys {
+          display: none;
+        }
+        .values {
+          margin-right: 0rem;
+        }
+      }
+    }
+
+    .btn {
+      margin-top: 1rem;
+      width: 100px;
+    }
+  }
+}

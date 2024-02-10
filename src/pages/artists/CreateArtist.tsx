@@ -11,6 +11,7 @@ import {
 } from '../../context/CRUDFormStateContext'
 import { CRUDFormType } from '../../types/common/CRUDForm/enums'
 import { NEW_ARTIST, UPDATE_ARTIST } from '../routes'
+import { useEffect } from 'react'
 
 function CreateArtist() {
   const { setArtists } = useArtistsContext()
@@ -31,7 +32,7 @@ function CreateArtist() {
         {
           method: 'POST',
           body: formData
-          //  if you define Content-Type manually, you can't inform about boundary information. It need to managed automatically by browser because you send files too.
+          //  if you define Content-Type manually, you can't inform about boundary information. It needs to be managed automatically by browser because you send files too.
           // headers: {
           //   'Content-Type': 'multipart/form-data'
           // },
@@ -48,6 +49,10 @@ function CreateArtist() {
       console.error(error)
     }
   }
+
+  useEffect(() => {
+    setState(CRUDFormState.PENDING)
+  }, [])
 
   return (
     <>

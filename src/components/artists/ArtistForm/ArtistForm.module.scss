@@ -1,11 +1,8 @@
-.artistInfo {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
+.artistCardContainer {
+  margin-right: 2rem;
 }
 
 .artistForm {
-  margin-left: 2rem;
   display: flex;
   flex-direction: column;
 
@@ -14,9 +11,16 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 
     :last-child {
       margin-left: 1rem;
     }
+  }
+}
+
+@media (max-width: 720px) {
+  .artistCardContainer {
+    margin-right: 0rem;
   }
 }

@@ -1,6 +1,8 @@
 @use '/src/styles/variables' as *;
 
 .slowDataInfo {
+  font-size: $font-size-s;
+  text-align: center;
   padding-bottom: 2rem;
   color: $red;
 }

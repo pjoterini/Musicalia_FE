@@ -96,7 +96,7 @@ function EditSong() {
 
   return (
     <>
-      <SectionTitle extra={id}>Edit Song</SectionTitle>
+      <SectionTitle>Edit Song</SectionTitle>
       {song && id && (
         <SongForm
           formType={CRUDFormType.EDIT}

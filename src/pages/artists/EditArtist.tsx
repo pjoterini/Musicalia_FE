@@ -60,6 +60,11 @@ function EditArtist() {
   }
 
   const deleteArtist: () => Promise<void> = async () => {
+    if (songs && songs?.length > 0) {
+      window.alert('All of this artist songs need to be deleted first!')
+      return
+    }
+
     if (window.confirm('Are you sure you want to delete this artist?')) {
       try {
         const response = await fetch(
@@ -93,6 +98,8 @@ function EditArtist() {
       )
       const data = await response.json()
 
+      console.log(data.songs)
+
       setArtist(data.artist)
       setSongs(data.songs)
     }
@@ -103,7 +110,7 @@ function EditArtist() {
 
   return (
     <>
-      <SectionTitle extra={id}>Edit Artist</SectionTitle>
+      <SectionTitle>Edit Artist</SectionTitle>
       {artist && id && (
         <ArtistForm
           formType={CRUDFormType.EDIT}
@@ -112,8 +119,9 @@ function EditArtist() {
           deleteArtist={deleteArtist}
         />
       )}
+
       {songs && (
-        <SongsContainer songs={songs} containerType={ContainerType.ALL} />
+        <SongsContainer songs={songs} containerType={ContainerType.RECENT} />
       )}
     </>
   )

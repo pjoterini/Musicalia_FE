@@ -9,6 +9,7 @@ import {
 import { useSongsContext } from '../../context/SongsContext'
 import { CRUDFormType } from '../../types/common/CRUDForm/enums'
 import { NEW_SONG, UPDATE_SONG } from '../routes'
+import { useEffect } from 'react'
 
 function CreateSong() {
   const navigate = useNavigate()
@@ -41,6 +42,10 @@ function CreateSong() {
       console.error(error)
     }
   }
+
+  useEffect(() => {
+    setState(CRUDFormState.PENDING)
+  }, [])
 
   return (
     <>
