@@ -18,8 +18,12 @@ function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      // const response = await fetch(import.meta.env.VITE_BACKEND_URL)
-      const response = await fetch('https://musicalia.onrender.com')
+      // There is a problem with .env reading on vercel, so hardcoded url is used.
+      console.log(import.meta.env)
+      console.log(import.meta.env.VITE_BACKEND_URL)
+      console.log(import.meta.env.BACKEND_URL)
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL)
+      // const response = await fetch('https://musicalia.onrender.com')
       const data = await response.json()
 
       setArticles(data.articles)
