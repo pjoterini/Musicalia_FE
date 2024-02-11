@@ -2068,6 +2068,7 @@ __metadata:
     react-filepond: ^7.1.2
     react-hook-form: ^7.50.0
     react-router-dom: ^6.21.3
+    react-spinners: ^0.13.8
     sass: ^1.70.0
     typescript: ^5.2.2
     uuid: ^9.0.1
@@ -2374,6 +2375,16 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 7e6297d5b67ae07d2e8564e036dbb15ebd706b41c22238940f47eee9b21ffb76d41336803c3b33435f1ebe210226577e32df3838bcbf2cd7c813fa357c0a4fac
+  languageName: node
+  linkType: hard
+
+"react-spinners@npm:^0.13.8":
+  version: 0.13.8
+  resolution: "react-spinners@npm:0.13.8"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: cb58f916bbf00c4f7fc33c1a75a8c0f91a98a42af26944340a0e29e4b3a97937a03f0292bc444eb5f5f0bea099344b580f9c04a81524246dadbf0571bdb57e62
   languageName: node
   linkType: hard
 

@@ -1,16 +1,15 @@
-import './styles/global/global.scss'
 import { Route, Routes } from 'react-router-dom'
 import Content from './layout/Content/Content'
 import Footer from './layout/Footer/Footer'
 import Header from './layout/Header/Header'
 import Home from './pages/Home'
+import NotFoundPage from './pages/NotFoundPage'
 import ArtistsList from './pages/artists/ArtistsList'
-import SongsList from './pages/songs/SongsList'
+import CreateArtist from './pages/artists/CreateArtist'
 import EditArtist from './pages/artists/EditArtist'
 import CreateSong from './pages/songs/CreateSong'
-import CreateArtist from './pages/artists/CreateArtist'
 import EditSong from './pages/songs/EditSong'
-import NotFoundPage from './pages/NotFoundPage'
+import SongsList from './pages/songs/SongsList'
 
 function App() {
   return (

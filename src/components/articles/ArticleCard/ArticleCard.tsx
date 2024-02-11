@@ -5,14 +5,16 @@ interface IProps {
 }
 
 const ArticleCard = ({ article }: IProps) => {
-  const titleSliced = article.title.slice(0, 50)
-  const descriptonSliced = article.description.slice(0, 120)
+  const titleSliced = article.title?.slice(0, 50)
+  const descriptonSliced = article.description?.slice(0, 120)
 
   return (
     <a href={article.url} target='_blank'>
       <p className={s.title}>
         {titleSliced}
-        {article.title.length > titleSliced.length && <span>...</span>}
+        {article.title &&
+          titleSliced &&
+          article.title?.length > titleSliced.length && <span>...</span>}
       </p>
       <img
         className={s.image}
@@ -25,9 +27,11 @@ const ArticleCard = ({ article }: IProps) => {
       />
       <p className={s.description}>
         {descriptonSliced}
-        {article.description.length > descriptonSliced.length && (
-          <span>...</span>
-        )}
+        {article.description &&
+          descriptonSliced &&
+          article.description.length > descriptonSliced.length && (
+            <span>...</span>
+          )}
       </p>
     </a>
   )

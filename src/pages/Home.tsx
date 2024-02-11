@@ -8,6 +8,7 @@ import { useArticlesContext } from '../context/ArticlesContext'
 import { useArtistsContext } from '../context/ArtistsContext'
 import { useSongsContext } from '../context/SongsContext'
 import { ContainerType } from '../types/common/CardContainer/enums'
+import Spinner from '../components/common/Spinner/Spinner'
 
 function Home() {
   const { setArticles } = useArticlesContext()
@@ -34,6 +35,7 @@ function Home() {
       {!isServerAlive && <SlowDataInfo />}
       <Articles />
       <SectionTitle extra='Recently added'>Articles</SectionTitle>
+      <Spinner loading={!artists} />
       {artists && (
         <ArtistsContainer
           artists={artists}
@@ -41,6 +43,8 @@ function Home() {
         />
       )}
       <SectionTitle extra='Recently added'>Songs</SectionTitle>
+      <Spinner loading={!songs} />
+
       {songs && (
         <SongsContainer songs={songs} containerType={ContainerType.RECENT} />
       )}
