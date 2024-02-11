@@ -30,3 +30,4 @@ dist-ssr
 .env.production
 
 /TO_DO.txt
+.vercel
