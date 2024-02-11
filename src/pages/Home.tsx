@@ -18,7 +18,8 @@ function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL)
+      // const response = await fetch(import.meta.env.VITE_BACKEND_URL)
+      const response = await fetch('https://musicalia.onrender.com')
       const data = await response.json()
 
       setArticles(data.articles)

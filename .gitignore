@@ -26,5 +26,7 @@ dist-ssr
 .yarn
 .vscode
 .env
+.env.development   
+.env.production
 
 /TO_DO.txt
