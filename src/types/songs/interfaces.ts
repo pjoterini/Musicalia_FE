@@ -1,12 +1,10 @@
+import { IArtist } from '../artists/interfaces'
 import { ContainerType } from '../common/CardContainer/enums'
 
 export interface ISong {
   _id: string
-  artist: {
-    name: string
-    genre: string
-    rating: number
-  }
+  artist: IArtist
+  genre: string
   title: string
   rating: number
   createdAt: string

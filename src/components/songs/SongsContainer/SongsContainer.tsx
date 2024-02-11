@@ -13,7 +13,7 @@ const SongsContainer = ({
 
   useEffect(() => {
     if (containerType === ContainerType.RECENT) {
-      setSlicedSongs(songs?.slice(0, 10))
+      setSlicedSongs(songs?.slice(songs.length - 10, songs.length).reverse())
     }
   }, [])
 

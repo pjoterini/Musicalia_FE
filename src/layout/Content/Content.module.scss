@@ -1,10 +1,28 @@
 @use '../../styles/variables' as *;
 
 .contentContainer {
+  position: relative;
   background-color: $dark-2;
   width: 100%;
-  padding: 2rem;
   max-width: 1300px;
+  min-height: 35rem;
+  padding: 2rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    pointer-events: none;
+    filter: opacity(0.12);
+  }
 }

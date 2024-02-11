@@ -16,7 +16,9 @@ const ArtistsContainer = ({
 
   useEffect(() => {
     if (containerType === ContainerType.RECENT) {
-      setSlicedArtists(artists?.slice(0, 6))
+      setSlicedArtists(
+        artists?.slice(artists.length - 6, artists.length).reverse()
+      )
     }
   }, [])
 

@@ -1,0 +1,69 @@
+@use '../variables' as *;
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+h1 {
+  font-family: $font-1;
+  font-size: $font-size-logo;
+  font-weight: $font-weight-l;
+}
+
+h2 {
+  font-family: $font-1;
+  font-size: $font-size-l;
+  font-weight: $font-weight-s;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: $font-size-l;
+  font-weight: $font-weight-s;
+}
+
+.error,
+.success {
+  font-size: $font-size-s;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error {
+  color: $red;
+}
+
+.success {
+  color: $green;
+}
+
+@media (max-width: 1024px) {
+  // h1 {
+  //   font-size: $font-size-l;
+  // }
+
+  // h2 {
+  //   font-size: $font-size-m;
+  // }
+
+  // h3 {
+  //   font-size: $font-size-m;
+  // }
+}
+
+@media (max-width: 720px) {
+  h1 {
+    font-size: $font-size-xl;
+    padding-left: 1rem;
+  }
+
+  h2 {
+    font-size: $font-size-m;
+  }
+
+  h3 {
+    font-size: $font-size-s;
+    font-weight: $font-weight-l;
+  }
+}

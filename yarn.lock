@@ -1403,6 +1403,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"filepond-plugin-image-exif-orientation@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "filepond-plugin-image-exif-orientation@npm:1.0.11"
+  peerDependencies:
+    filepond: ">=3.x <5.x"
+  checksum: e9b8c886eac8da9a17684937aa8e702b65c3286c6feeb5a987c7eea0bd94b50e8e5804ceea3a257a4b0dfbaffd3657f9cd3e4f7be5a043e69a201f5e96f77116
+  languageName: node
+  linkType: hard
+
+"filepond-plugin-image-preview@npm:^4.6.12":
+  version: 4.6.12
+  resolution: "filepond-plugin-image-preview@npm:4.6.12"
+  peerDependencies:
+    filepond: ">=4.x <5.x"
+  checksum: 2cf015af7820507aa23148666fb155be0431d556cb8402d313b4ed3c8f25a71cd652795a67307c9de0de88b60c79c99921aecf89750ca2e09b0d17912efcee1f
+  languageName: node
+  linkType: hard
+
+"filepond@npm:^4.30.6":
+  version: 4.30.6
+  resolution: "filepond@npm:4.30.6"
+  checksum: 179464483eb71149b4a730b22cb645e4230223dd18c361a2948a32e7635d188e75421de97f26bc3109ca78c930dce966518ec28387624c6b30a745bcfd02276d
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^7.0.1":
   version: 7.0.1
   resolution: "fill-range@npm:7.0.1"
@@ -2035,9 +2060,15 @@ __metadata:
     eslint: ^8.55.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.5
+    filepond: ^4.30.6
+    filepond-plugin-image-exif-orientation: ^1.0.11
+    filepond-plugin-image-preview: ^4.6.12
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-filepond: ^7.1.2
+    react-hook-form: ^7.50.0
     react-router-dom: ^6.21.3
+    react-spinners: ^0.13.8
     sass: ^1.70.0
     typescript: ^5.2.2
     uuid: ^9.0.1
@@ -2296,6 +2327,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-filepond@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "react-filepond@npm:7.1.2"
+  peerDependencies:
+    filepond: ">=3.7.x < 5.x"
+    react: 16 - 18
+    react-dom: 16 - 18
+  checksum: 5aaa41dff2c3b3330442c521c3d73505b73bc14a3989c3e62f5e48de52d07904e1146280ec926fd805d7571b9ec14eec71769e55205f80ed0154094c48242b8f
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.50.0":
+  version: 7.50.0
+  resolution: "react-hook-form@npm:7.50.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: d70561cbc251696bfbfa88c71fc7ac21df1f279acead7eaed81629e4c5469bebdc101a68350b8bc1658195980aa40a55bcd742a56494c5181e0348b94e8b39a2
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -2324,6 +2375,16 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 7e6297d5b67ae07d2e8564e036dbb15ebd706b41c22238940f47eee9b21ffb76d41336803c3b33435f1ebe210226577e32df3838bcbf2cd7c813fa357c0a4fac
+  languageName: node
+  linkType: hard
+
+"react-spinners@npm:^0.13.8":
+  version: 0.13.8
+  resolution: "react-spinners@npm:0.13.8"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: cb58f916bbf00c4f7fc33c1a75a8c0f91a98a42af26944340a0e29e4b3a97937a03f0292bc444eb5f5f0bea099344b580f9c04a81524246dadbf0571bdb57e62
   languageName: node
   linkType: hard
 

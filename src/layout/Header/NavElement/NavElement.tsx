@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { NavLink } from 'react-router-dom'
 import s from './NavElement.module.scss'
-import { Link } from 'react-router-dom'
 
 interface IProps {
   children: React.ReactNode
@@ -12,18 +12,18 @@ function NavElement({ children }: IProps) {
     <div className={s.entity}>
       <h2>{children}</h2>
       <div className={s.buttons}>
-        <Link to={`/${children}`}>
+        <NavLink end to={`/${children}`}>
           <button className={s.firstButton} type='button'>
             <FontAwesomeIcon className={s.icon} icon={faList} />
             LIST
           </button>
-        </Link>
-        <Link to={`/${children}/new`}>
+        </NavLink>
+        <NavLink end to={`/${children}/new`}>
           <button type='button'>
             <FontAwesomeIcon className={s.icon} icon={faPlus} />
             NEW
           </button>
-        </Link>
+        </NavLink>
       </div>
     </div>
   )

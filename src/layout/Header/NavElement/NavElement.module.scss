@@ -16,3 +16,11 @@
     margin-right: 1rem;
   }
 }
+
+@media (max-width: 720px) {
+  .buttons {
+    .firstButton {
+      margin-right: 1rem;
+    }
+  }
+}

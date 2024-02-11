@@ -1,4 +1,7 @@
-@use './variables' as *;
+@use '../variables' as *;
+@use './forms.scss';
+@use './buttons.scss';
+@use './text.scss';
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -43,50 +46,4 @@
 
 body {
   background: $dark-3;
-}
-
-a {
-  text-decoration: none;
-  color: $white;
-}
-
-h1 {
-  font-family: $font-1;
-  font-size: $font-size-logo;
-  font-weight: $font-weight-l;
-}
-
-h2 {
-  font-family: $font-1;
-  font-size: $font-size-l;
-  font-weight: $font-weight-s;
-  text-transform: uppercase;
-}
-
-h3 {
-  font-size: $font-size-l;
-  font-weight: $font-weight-s;
-}
-
-button {
-  outline: none;
-  padding: 0.5rem 1rem;
-  background-color: $dark-1;
-  color: $white;
-  border: 2px solid $white;
-  border-radius: 3rem;
-  font-size: $font-size-s;
-  cursor: pointer;
-
-  transition: $transition-1;
-
-  &:hover {
-    background-color: $dark-3;
-    box-shadow: inset 0px 0px 0px 1px;
-  }
-}
-
-img {
-  width: 100px;
-  height: 100px;
 }

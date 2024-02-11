@@ -1,8 +1,12 @@
-.artistCardContainer {
+.cards {
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-right: 2rem;
 }
 
-.artistForm {
+.songForm {
   display: flex;
   flex-direction: column;
 
@@ -11,16 +15,13 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 
     :last-child {
       margin-left: 1rem;
     }
   }
-}
 
-@media (max-width: 720px) {
-  .artistCardContainer {
-    margin-right: 0rem;
+  .disabledInput {
+    margin-bottom: 1rem;
   }
 }

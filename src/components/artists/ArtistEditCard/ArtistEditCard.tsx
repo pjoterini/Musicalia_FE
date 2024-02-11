@@ -2,7 +2,7 @@ import s from './ArtistEditCard.module.scss'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import { parseDate } from '../../../utility/parseDate'
 import { Link } from 'react-router-dom'
-import { EDIT_ARTIST } from '../../../pages/routes'
+import { UPDATE_ARTIST } from '../../../pages/routes'
 import { IArtist } from '../../../types/artists/interfaces'
 
 interface IProps {
@@ -26,7 +26,7 @@ const ArtistEditCard = ({ artist }: IProps) => {
             <p className={s.value}>{parseDate(artist)}</p>
           </div>
         </div>
-        <Link to={`${EDIT_ARTIST}${artist._id}`}>
+        <Link to={`${UPDATE_ARTIST}${artist._id}`}>
           <button className={s.btn}>Edit</button>
         </Link>
       </div>

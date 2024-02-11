@@ -13,12 +13,12 @@ function ArtistsList() {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}${ARTISTS_LIST}`
       )
-      const data = await response.json()
+      const { artists } = await response.json()
 
-      setArtists(data.artists)
+      setArtists(artists)
     }
 
-    getArtists()
+    !artists && getArtists()
   }, [])
 
   return (

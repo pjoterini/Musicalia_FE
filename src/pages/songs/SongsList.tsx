@@ -13,12 +13,12 @@ function SongsList() {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}${SONGS_LIST}`
       )
-      const data = await response.json()
+      const { songs } = await response.json()
 
-      setSongs(data.songs)
+      setSongs(songs)
     }
 
-    getSongs()
+    !songs && getSongs()
   }, [])
 
   return (
