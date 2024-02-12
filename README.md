@@ -1,12 +1,13 @@
 # Musicalia
 
-[App PREVIEW](https://hellomusicalia.vercel.app/)
+[Application Preview](https://hellomusicalia.vercel.app/)
+[Backend code](https://github.com/pjoterini/Musicalia_BE)
 
 ## Description
 
-Fullstack music application with CRUD operations and API usage made with Node.js, Express, MongoDB/Mongoose and React.js as frontend.
+Fullstack application in which you can store artists and songs with images.
 
-PREVIOUSLY views were implemented with EJS and CSS. Source code for this solution can be found under '0.MPA_with_EJS' foler in root directory(Musicalia_BE repository).
+PREVIOUSLY views were implemented with EJS and CSS. Source code for this solution can be found under '0.MPA_with_EJS' folder in root directory(Musicalia_BE repository).
 
 ## Navigation
 
@@ -24,10 +25,10 @@ User can add artists and songs. Filling all inputs with proper data is required 
 - Rating > Number
 - Cover > jpg. file
 
-<!-- **SEE ALL ARTIST/SONG**
-
-Search inputs were made with regex and mongodb methods. -->
-
 **EDIT AND DELTE**
 
 Deleting artists from database is only possible if there is no songs reletad to certain artist. Using delete buttons will show prompt asking if the user is sure about this action.
+
+## STACK
+
+Node.js • Express • MongoDB/Mongoose • React.js
