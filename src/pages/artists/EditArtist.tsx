@@ -16,6 +16,7 @@ import {
   CRUDFormState,
   useCRUDFormStateContext
 } from '../../context/CRUDFormStateContext'
+import Spinner from '../../components/common/Spinner/Spinner'
 
 function EditArtist() {
   const { id } = useParams()
@@ -111,13 +112,15 @@ function EditArtist() {
   return (
     <>
       <SectionTitle>Edit Artist</SectionTitle>
-      {artist && id && (
+      {artist && id ? (
         <ArtistForm
           formType={CRUDFormType.EDIT}
           artist={artist}
           updateArtist={updateArtist}
           deleteArtist={deleteArtist}
         />
+      ) : (
+        <Spinner loading={!artist} />
       )}
 
       {songs && (

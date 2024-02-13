@@ -1,6 +1,7 @@
 # Musicalia
 
 [Application Preview](https://hellomusicalia.vercel.app/)
+
 [Backend code](https://github.com/pjoterini/Musicalia_BE)
 
 ## Description
