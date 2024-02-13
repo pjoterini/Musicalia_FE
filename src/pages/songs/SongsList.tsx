@@ -4,6 +4,7 @@ import SongsContainer from '../../components/songs/SongsContainer/SongsContainer
 import { useSongsContext } from '../../context/SongsContext'
 import { ContainerType } from '../../types/common/CardContainer/enums'
 import { SONGS_LIST } from '../routes'
+import Spinner from '../../components/common/Spinner/Spinner'
 
 function SongsList() {
   const { songs, setSongs } = useSongsContext()
@@ -24,7 +25,7 @@ function SongsList() {
   return (
     <>
       <SectionTitle extra='all'>Songs</SectionTitle>
-      {songs && (
+      {songs ? (
         <SongsContainer
           songs={songs}
           containerType={ContainerType.ALL}
@@ -32,6 +33,8 @@ function SongsList() {
             gridTemplateColumns: 'repeat(auto-fill, 220px)'
           }}
         />
+      ) : (
+        <Spinner loading={!songs} />
       )}
     </>
   )

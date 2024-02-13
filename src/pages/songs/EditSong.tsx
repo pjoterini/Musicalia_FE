@@ -11,6 +11,7 @@ import { SONGS_LIST, UPDATE_SONG } from '../routes'
 import { useSongsContext } from '../../context/SongsContext'
 import SectionTitle from '../../components/common/SectionTitle/SectionTitle'
 import { CRUDFormType } from '../../types/common/CRUDForm/enums'
+import Spinner from '../../components/common/Spinner/Spinner'
 
 function EditSong() {
   const { id } = useParams()
@@ -97,13 +98,15 @@ function EditSong() {
   return (
     <>
       <SectionTitle>Edit Song</SectionTitle>
-      {song && id && (
+      {song && id ? (
         <SongForm
           formType={CRUDFormType.EDIT}
           song={song}
           updateSong={updateSong}
           deleteSong={deleteSong}
         />
+      ) : (
+        <Spinner loading={!song} />
       )}
     </>
   )
